@@ -1,0 +1,29 @@
+@charset "utf-8";
+// styles/element/index.scss
+/* 只需要重写你需要的即可 */
+@forward "~element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    'white': #ffffff,
+    'black': #000000,
+    "primary": (
+      "base": $base-color-default,
+    ),
+    'success': (
+      'base': $base-color-green,
+    ),
+    'warning': (
+      'base': $base-color-yellow,
+    ),
+    'danger': (
+      'base': $base-color-red,
+    ),
+    'error': (
+      'base': $base-color-orange,
+    ),
+  ),
+  $menu: (
+    'item-height': 45px,
+  )
+);
+// 如果你想导入所有样式:
+@import "~element-plus/theme-chalk/src/index.scss";
