@@ -1,29 +1,8 @@
 # vue3-manage-init
 
-## Project setup
+## vue3 管理系统。
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Run your unit tests
-```
-yarn test:unit
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 后台来自jeecgboot感谢jeecgboot

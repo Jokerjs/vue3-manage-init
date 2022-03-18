@@ -1,5 +1,4 @@
-const systemBaseUrl = '/jeecg-system'
-const modelBaseUrl = '/sleep-modules'
+const systemBaseUrl = '/sys'
 
 export default {
     // apiurl
@@ -50,15 +49,5 @@ export default {
 
         // 定时任务
         quartzJob: systemBaseUrl + '/sys/quartzJob'
-    },
-    // 公共接口
-    commom: {
-        logic: modelBaseUrl + '/utils/queryCalculationEnumBy', // 查询逻辑运算符号类型
-        metadata: modelBaseUrl + '/utils/queryCalculationEnumBy12', // 模拟元数据返回字段
-        enumBy: modelBaseUrl + '/utils/queryCalculationEnumBy', // 模拟元数据返回字段
-        adressDic: modelBaseUrl + '/patientRecord/patientRecord/queryAdressDictList', // 区域代码
-        adressDicByLevel: modelBaseUrl + '/patientRecord/patientRecord/queryAddressDictListByLevel', // 省市区根据父级查询子级区域 省父级为0
-        country: modelBaseUrl + '/nationality/nationality/queryByAll', // 国籍-查询全部国籍
-        nation: modelBaseUrl + '/nationality/nation/queryAll' // 民族-查询全部 中国154
     }
 }
