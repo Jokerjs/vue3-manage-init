@@ -10,24 +10,14 @@ export default [
     },
     // {
     //     path: '/Manage',
+    //     name: 'layout',
     //     component: () => import('@/views/Layouts'),
-    //     children: [
-    //         {
-    //             path: 'DualReferral',
-    //             component: () => import('@/views/Layouts/LayoutsView'),
-    //             children: [
-    //                 {
-    //                     path: 'ChangeInto',
-    //                     component: () => import('@/views/Manage/DualReferral/ChangeInto')
-    //                 }
-    //             ]
-    //         }
-    //     ]
+    //     children: []
     // },
     {
         path: '/noPage',
         name: 'noPage',
-        component: () => import('@/views/Layouts'),
+        component: () => import('@/views/Layouts/LayoutsView'),
         children: [
             {
                 path: '404',

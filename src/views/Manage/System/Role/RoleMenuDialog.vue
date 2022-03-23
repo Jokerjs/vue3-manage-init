@@ -15,7 +15,7 @@
                                  show-checkbox
                                  default-expand-all
                                  :check-strictly="checkStrictly"
-                                 ></el-tree>
+                        ></el-tree>
                     </el-scrollbar>
                 </div>
             </el-form-item>
@@ -32,7 +32,7 @@
 <script setup>
 import {_http, _api} from '@/libs/';
 import editRepositories from '@/repositories/editRepositories';
-import {defineEmits, defineProps, reactive, ref} from 'vue';
+import {defineEmits, defineProps, ref} from 'vue';
 
 const emit = defineEmits(['update:formData', 'update:dialogFormVisible', 'onSubmit']);
 const props = defineProps({
@@ -54,12 +54,7 @@ const allTreeKeys = ref([]);
 const menus = ref([]);
 const defaultCheckedKeys = ref([]);
 
-const api = reactive({
-    add: `${_api.system.role}/add`,
-    edit: `${_api.system.role}/edit`
-});
-
-const {formRef, loading, form, dialogVisible, handleCancel} = editRepositories(emit, props, api);
+const {formRef, loading, form, dialogVisible, handleCancel} = editRepositories(emit, props);
 
 function checkAll(all = []) {
     menuTree.value.setCheckedKeys(all);
@@ -74,7 +69,7 @@ async function getMenus() {
     const queryRolePermissions = await _http.get(_api.system.queryRolePermission, {params: {roleId: form.value.id}});
     menus.value = treeList;
     allTreeKeys.value = ids;
-    menuTree.value.setCheckedKeys(queryRolePermissions)
+    menuTree.value.setCheckedKeys(queryRolePermissions);
     defaultCheckedKeys.value = queryRolePermissions;
 }
 

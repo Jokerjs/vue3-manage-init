@@ -27,7 +27,7 @@ router.beforeEach(async (to, from, next) => {
             } else {
                 if (!user.login) {
                     await store.dispatch('user/GetUserInfo')
-                    router.addRoute(user.routers)
+                    await router.addRoute(user.routers)
                     next({
                         ...to,
                         replace: true

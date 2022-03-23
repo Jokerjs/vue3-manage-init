@@ -38,7 +38,7 @@ const passwordType = ref('password')
 const loading = ref(false)
 const form = reactive({
     username: 'admin',
-    password: '123456'
+    password: '123456',
 })
 const rules = reactive({
     username: [

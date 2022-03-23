@@ -11,6 +11,7 @@ const user = {
         routers: []
     },
     getters: {
+        login: (state) => state.login,
         accessToken: (state) => state.accessToken,
         username: (state) => state.user.username,
         avatar: (state) => state.user.avatar,

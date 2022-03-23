@@ -1,4 +1,5 @@
-const systemBaseUrl = '/sys'
+const systemBaseUrl = '/jeecg-system'
+// const modelBaseUrl = '/sleep-modules'
 
 export default {
     // apiurl

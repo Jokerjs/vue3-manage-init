@@ -1,6 +1,6 @@
 import {computed, ref} from 'vue';
 import {_http} from '@/libs'
-export default function editRepositories(emit, props, api) {
+export default function editRepositories(emit, props, api = {}) {
     const formRef = ref(null)
     const loading = ref(false)
 

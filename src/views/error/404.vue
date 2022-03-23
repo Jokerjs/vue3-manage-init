@@ -30,22 +30,21 @@ const message = ref('找不到网页')
 
 <style lang="scss" scoped>
 .wscn-http404-container {
-    transform: translate(-50%, -50%);
-    position: absolute;
-    top: 45%;
-    left: 50%;
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .wscn-http404 {
-    position: relative;
-    width: 1200px;
-    padding: 0 50px;
-    overflow: hidden;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .pic-404 {
+        width: 500px;
         position: relative;
         float: left;
-        width: 600px;
         overflow: hidden;
 
         &__parent {
@@ -164,7 +163,7 @@ const message = ref('找不到网页')
         position: relative;
         float: left;
         width: 300px;
-        padding: 30px 0;
+        padding: 40px 0;
         overflow: hidden;
 
         &__oops {
