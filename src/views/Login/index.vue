@@ -15,6 +15,16 @@
                         <el-input :key="passwordType" ref="password" v-model.trim="form.password" :type="passwordType" tabindex="2" placeholder="请输入密码" @keyup.enter="handleLogin"/>
                     </el-form-item>
                     <el-form-item prop="password">
+                        <el-row :gutter="10" style="width: 100%;">
+                            <el-col :span="17">
+                                <el-input :key="passwordType" v-model.trim="form.captcha" placeholder="请输入验证码" @keyup.enter="handleLogin"/>
+                            </el-col>
+                            <el-col :span="7">
+                                <img :src="captchaImg" class="captcha-img" @click="getCaptchaImg" />
+                            </el-col>
+                        </el-row>
+                    </el-form-item>
+                    <el-form-item prop="password">
                         <el-button :loading="loading" class="login-btn" type="primary" @click="handleLogin">登录</el-button>
                     </el-form-item>
                 </el-form>
@@ -28,16 +38,19 @@ import website from '@/config/website'
 import { ref, reactive } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
+import { _http, _api } from '@/libs/'
 
 const mgStore = useStore()
 const mgRouter = useRouter()
 
+const now = ref(0)
+const captchaImg = ref('')
 const refForm = ref(null)
 const title = ref(website.base_title)
 const passwordType = ref('password')
 const loading = ref(false)
 const form = reactive({
-    username: 'admin',
+    username: 'jeecg',
     password: '123456',
 })
 const rules = reactive({
@@ -53,12 +66,29 @@ const rules = reactive({
             trigger: 'blur',
             message: '密码不能为空'
         }
+    ],
+    captcha: [
+    {
+            required: true,
+            trigger: 'blur',
+            message: 'y验证码能为空'
+        }
     ]
 })
+
+getCaptchaImg()
+
+function getCaptchaImg() {
+    now.value = new Date().getTime()
+    _http.get(_api.randomImage + '/' + now.value).then(res => {
+        captchaImg.value = res
+    })
+}
 function handleLogin(){
     refForm.value.validate((valid) => {
         if (valid) {
             loading.value = true
+            form.checkKey = now.value
             mgStore.dispatch('user/LoginByUsername', form).then(() => {
                 mgRouter.push({ path: '/Manage' })
                 loading.value = false
@@ -127,6 +157,11 @@ function handleLogin(){
                 border: 0;
             }
         }
+    }
+
+    .captcha-img {
+        width: 100%;
+        height: 46px;
     }
 }
 </style>

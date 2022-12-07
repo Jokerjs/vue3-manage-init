@@ -27,7 +27,8 @@ const user = {
             localStorage.setItem('userInfo', JSON.stringify(payload.userInfo))
         },
         USER_INFO_DATA (state, payload) {
-            const menus = payload.menu.find(item => item.path === '/Sleep').children
+            // const menus = payload.menu.find(item => item.path === '/Sleep').children
+            const menus = payload.menu
             const routers = routerUtils.createRouters(menus)
             Object.assign(state, {
                 routers: routers,
